@@ -28,16 +28,6 @@ public:
 
 public:
 
-    bool isEmpty()
-    {
-        return length == bufferSize;
-    }
-
-    bool isFull()
-    {
-        return length==0;
-    }
-
     T getElem()
     {
         T get = buffer[tail];
@@ -46,7 +36,7 @@ public:
         return get;
     }
 
-    void push(T addEl)
+    void push(const T & addEl)
     {
         head = nextPosition(head);
         buffer[head] = addEl;
@@ -60,6 +50,16 @@ public:
     }
 
 private:
+
+    bool isEmpty()
+    {
+        return length == bufferSize;
+    }
+
+    bool isFull()
+    {
+        return length==0;
+    }
 
     int nextPosition(int &pos)
     {
